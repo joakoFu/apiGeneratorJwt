@@ -16,7 +16,8 @@ import static org.springframework.core.Ordered.HIGHEST_PRECEDENCE;
 @ControllerAdvice
 @Priority(HIGHEST_PRECEDENCE)
 public class ErrorHandler {
-    private static final Logger logger = LoggerFactory.getLogger(ErrorHandler.class);    @ExceptionHandler(JWTVerificationException.class)
+    private static final Logger logger = LoggerFactory.getLogger(ErrorHandler.class);
+    @ExceptionHandler(JWTVerificationException.class)
     public ResponseEntity<Object> handlerDefaultHandler(JWTVerificationException ex) {
         logger.error(ex.getMessage());
         HashMap<String, String> result = new HashMap<>();
